@@ -15,5 +15,15 @@ export default {
     } catch (err) {
       throw err
     }
+  },
+  deleteFitnessClass: async (_, { _id }) => {
+    try {
+	    await FitnessClass.findByIdAndRemove(_id)
+	    return {
+	      message: 'Delete Success!'
+	    }
+	  } catch (err) {
+	    throw err
+	  }
   }
 }

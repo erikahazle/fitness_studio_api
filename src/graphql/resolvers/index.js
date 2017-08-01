@@ -6,6 +6,7 @@ export default {
   },
   Mutation: {
 	  createFitnessClass: FitnessClassResolvers.createFitnessClass,
-	  updateFitnessClass: FitnessClassResolvers.updateFitnessClass
+	  updateFitnessClass: FitnessClassResolvers.updateFitnessClass,
+	  deleteFitnessClass: FitnessClassResolvers.deleteFitnessClass
 	}
 }

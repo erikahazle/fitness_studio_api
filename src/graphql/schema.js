@@ -5,6 +5,10 @@ export default `
     description: String
   }
 
+  type Status {
+    message: String!
+  }
+
   type Query {
     getFitnessClasses: [FitnessClass]
   }
@@ -12,6 +16,7 @@ export default `
   type Mutation {
     createFitnessClass(name: String!, description: String): FitnessClass
     updateFitnessClass(_id: ID!, name: String, description: String): FitnessClass
+    deleteFitnessClass(_id: ID!): Status
   }
 
   schema {
