@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose'
 
 const FitnessClassSchema = new Schema({
-  name: String,
+  name: {type: String, unique : true},
   description: String,
 })
 
