@@ -1,6 +1,4 @@
-import { buildSchema } from 'graphql'
-
-export default buildSchema(`
+export default `
   type FitnessClass {
     _id: String
     name: String
@@ -8,10 +6,10 @@ export default buildSchema(`
   }
 
   type Query {
-    getClasses: [FitnessClass]
+    getFitnessClasses: [FitnessClass]
   }
 
   schema {
     query: Query
   }
-`)
+`

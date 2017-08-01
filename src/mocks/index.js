@@ -9,7 +9,7 @@ export default async () => {
     await FitnessClass.remove()
 
     await Array.from({ length: CLASSES_TOTAL }).forEach(async () => {
-      await FitnessClass.create({
+      const newClass = await FitnessClass.create({
         name: faker.lorem.words(1),
         description: faker.lorem.sentence(1),
       })

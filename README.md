@@ -3,5 +3,3 @@
 ## Getting started
 
 `yarn`
-
-### Configuration

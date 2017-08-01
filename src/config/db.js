@@ -19,7 +19,7 @@ try {
 }
 
 mongoose.connection
-  .once('open', () => console.log('MongoDB Running'))
+  .once('open', () => console.log('MongoDB Running ' + constants.DB_URL))
   .on('error', e => {
     throw e
   })
