@@ -1,10 +1,17 @@
 import Schedule from '../../models/Schedule'
+import mongoose from 'mongoose'
 
 export default {
   getSchedules: () => Schedule.find({}).populate('location').populate('instructor').populate('fitnessClass'),
   createSchedule: async (_, args) => {
     try {
-      return Schedule.create(args)
+      return Schedule.findOneAndUpdate({_id: mongoose.Types.ObjectId()}, args, {
+        new: true,
+        upsert: true,
+        runValidators: true,
+        setDefaultsOnInsert: true,
+        populate: ['location', 'fitnessClass', 'instructor']
+      })
     } catch (err) {
       throw err
     }

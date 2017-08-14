@@ -39,7 +39,7 @@ app.use(
 
 const graphQLServer = createServer(app)
 
-mocks().then(() => {
+// mocks().then(() => {
   graphQLServer.listen(constants.PORT, err => {
     console.log('inside listen', err)
     if (err) {
@@ -48,4 +48,4 @@ mocks().then(() => {
       console.log(`App listen to port: ${constants.PORT}`)
     }
   })
-})
+// })
