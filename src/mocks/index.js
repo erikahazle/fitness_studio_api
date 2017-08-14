@@ -1,14 +1,15 @@
 import faker from 'faker'
 
 import FitnessClass from '../models/FitnessClass'
-import LocationClass from '../models/LocationClass'
+import Location from '../models/Location'
+import Instructor from '../models/Instructor'
 
 const CLASSES_TOTAL = 10
 
 export default async () => {
   try {
     await FitnessClass.remove()
-    await LocationClass.remove()
+    await Location.remove()
 
     await Array.from({ length: CLASSES_TOTAL }).forEach(async () => {
       await FitnessClass.create({
@@ -16,9 +17,14 @@ export default async () => {
         description: faker.lorem.sentence(1),
       })
 
-      await LocationClass.create({
+      await Location.create({
         name: faker.lorem.words(1),
         address: faker.lorem.sentence(2),
+      })
+
+      await Instructor.create({
+        name: faker.lorem.words(1),
+        bio: faker.lorem.sentence(5),
       })
     })
   } catch (error) {

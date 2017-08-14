@@ -5,10 +5,16 @@ export default `
     description: String
   }
 
-  type LocationClass {
+  type Location {
     _id: String
     name: String
     address: String
+  }
+
+  type Instructor {
+    _id: String
+    name: String
+    bio: String
   }
 
   type Status {
@@ -17,16 +23,20 @@ export default `
 
   type Query {
     getFitnessClasses: [FitnessClass]
-    getLocations: [LocationClass]
+    getLocations: [Location]
+    getInstructors: [Instructor]
   }
 
   type Mutation {
     createFitnessClass(name: String!, description: String): FitnessClass
     updateFitnessClass(_id: ID!, name: String, description: String): FitnessClass
     deleteFitnessClass(_id: ID!): Status
-    createLocationClass(name: String!, address: String): LocationClass
-    updateLocationClass(_id: ID!, name: String, address: String): LocationClass
-    deleteLocationClass(_id: ID!): Status
+    createLocation(name: String!, address: String): Location
+    updateLocation(_id: ID!, name: String, address: String): Location
+    deleteLocation(_id: ID!): Status
+    createInstructor(name: String!, bio: String): Instructor
+    updateInstructor(_id: ID!, name: String, bio: String): Instructor
+    deleteInstructor(_id: ID!): Status
   }
 
   schema {
