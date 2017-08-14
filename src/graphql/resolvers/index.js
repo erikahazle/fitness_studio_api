@@ -1,12 +1,14 @@
 import FitnessClassResolvers from './fitnessClassResolver'
 import LocationResolvers from './locationResolver'
 import InstructorResolvers from './instructorResolver'
+import ScheduleResolvers from './scheduleResolver'
 
 export default {
   Query: {
     getFitnessClasses: FitnessClassResolvers.getFitnessClasses,
     getLocations: LocationResolvers.getLocations,
-    getInstructors: InstructorResolvers.getInstructors
+    getInstructors: InstructorResolvers.getInstructors,
+    getSchedules: ScheduleResolvers.getSchedules
   },
   Mutation: {
 	  createFitnessClass: FitnessClassResolvers.createFitnessClass,
@@ -17,6 +19,9 @@ export default {
 	  deleteLocation: LocationResolvers.deleteLocation,
 	  createInstructor: InstructorResolvers.createInstructor,
 	  updateInstructor: InstructorResolvers.updateInstructor,
-	  deleteInstructor: InstructorResolvers.deleteInstructor
+	  deleteInstructor: InstructorResolvers.deleteInstructor,
+	  createSchedule: ScheduleResolvers.createSchedule,
+	  updateSchedule: ScheduleResolvers.updateSchedule,
+	  deleteSchedule: ScheduleResolvers.deleteSchedule
 	}
 }

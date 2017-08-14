@@ -17,6 +17,16 @@ export default `
     bio: String
   }
 
+  type Schedule {
+    _id: String
+    date: String
+    duration: String
+    instructor: Instructor
+    location: Location
+    fitnessClass: FitnessClass
+    spacesTotal: String
+  }
+
   type Status {
     message: String!
   }
@@ -25,6 +35,7 @@ export default `
     getFitnessClasses: [FitnessClass]
     getLocations: [Location]
     getInstructors: [Instructor]
+    getSchedules: [Schedule]
   }
 
   type Mutation {
@@ -37,6 +48,9 @@ export default `
     createInstructor(name: String!, bio: String): Instructor
     updateInstructor(_id: ID!, name: String, bio: String): Instructor
     deleteInstructor(_id: ID!): Status
+    createSchedule(date: String!, duration: String, instructor: String, location: String!, fitnessClass: String!, spacesTotal: Int): Schedule
+    updateSchedule(_id: ID!, date: String, duration: String, instructor: String, location: String, fitnessClass: String, spacesTotal: Int): Schedule
+    deleteSchedule(_id: ID!): Status
   }
 
   schema {
