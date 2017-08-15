@@ -18,7 +18,11 @@ export default {
   },
   updateSchedule: async (_, { _id, ...rest }) => {
     try {
-      return Schedule.findByIdAndUpdate(_id, rest, { new: true })
+      return Schedule
+        .findByIdAndUpdate(_id, rest, { new: true })
+        .populate('location')
+        .populate('instructor')
+        .populate('fitnessClass')
     } catch (err) {
       throw err
     }
