@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose'
 
 const InstructorSchema = new Schema({
-  name: String,
+  name: {type: String, unique : true, required: true},
   bio: String
 })
 

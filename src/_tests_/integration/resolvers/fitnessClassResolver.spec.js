@@ -12,7 +12,7 @@ describe('FitnessClassResolver', () => {
 		expect(newClass.description).toEqual(args.description)
 	})
 
-	it('should not create a fitness class when name is not provided', async () => {
+	it('should not create a fitness class when name is not unique', async () => {
 		const args = {name: 'test1'}
 		const newClass = await FitnessClass.createFitnessClass(null, args)
 		expect(newClass._id).toBeTruthy()
