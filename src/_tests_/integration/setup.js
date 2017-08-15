@@ -70,17 +70,3 @@ export async function setupTest() {
   await connect()
   await clearDatabase()
 }
-
-import FitnessClass from '../graphql/resolvers/fitnessClassResolver'
-
-describe('example test', () => {
-	beforeEach(async () => setupTest())
-
-	it('should work', async () => {
-		const args = {name: 'hello', description: 'test1'}
-		const newClass = await FitnessClass.createFitnessClass(null, args)
-		expect(newClass._id).toBeTruthy()
-		expect(newClass.name).toEqual(args.name)
-		expect(newClass.description).toEqual(args.description)
-	})
-})
