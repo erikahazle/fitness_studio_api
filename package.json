@@ -6,7 +6,21 @@
   "author": "Erika Jonikaite",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev nodemon --exec babel-node src/index.js"
+    "dev": "cross-env NODE_ENV=dev nodemon --exec babel-node src/index.js",
+    "test": "./node_modules/.bin/jest . --watch --runInBand"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "html"
+    ],
+    "moduleNameMapper": {
+      "^mongoose$": "<rootDir>/node_modules/mongoose"
+    }
   },
   "dependencies": {
     "apollo-server-express": "^1.0.4",
@@ -22,6 +36,8 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "faker": "^4.1.0",
+    "jest": "^20.0.4",
+    "jest-cli": "^20.0.4",
     "nodemon": "^1.11.0"
   }
 }
