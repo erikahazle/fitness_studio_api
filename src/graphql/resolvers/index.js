@@ -2,6 +2,7 @@ import FitnessClassResolvers from './fitnessClassResolver'
 import LocationResolvers from './locationResolver'
 import InstructorResolvers from './instructorResolver'
 import ScheduleResolvers from './scheduleResolver'
+import UserResolvers from './userResolver'
 
 export default {
   Query: {
@@ -22,6 +23,8 @@ export default {
 	  deleteInstructor: InstructorResolvers.deleteInstructor,
 	  createSchedule: ScheduleResolvers.createSchedule,
 	  updateSchedule: ScheduleResolvers.updateSchedule,
-	  deleteSchedule: ScheduleResolvers.deleteSchedule
+	  deleteSchedule: ScheduleResolvers.deleteSchedule,
+	  signup: UserResolvers.signup,
+	  login: UserResolvers.login
 	}
 }

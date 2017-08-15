@@ -1,4 +1,6 @@
 export default `
+  scalar Date
+
   type FitnessClass {
     _id: String
     name: String
@@ -27,6 +29,15 @@ export default `
     spacesTotal: String
   }
 
+  type User {
+    _id: ID!
+    email: String!
+    firstName: String
+    lastName: String
+    createdAt: Date!
+    updatedAt: Date!
+  }
+
   type Status {
     message: String!
   }
@@ -51,6 +62,8 @@ export default `
     createSchedule(date: String!, duration: String, instructor: String, location: String!, fitnessClass: String!, spacesTotal: Int): Schedule
     updateSchedule(_id: ID!, date: String, duration: String, instructor: String, location: String, fitnessClass: String, spacesTotal: Int): Schedule
     deleteSchedule(_id: ID!): Status
+    signup(email: String!, fullName: String!, password: String!): User
+    login(email: String!, password: String!): User
   }
 
   schema {
