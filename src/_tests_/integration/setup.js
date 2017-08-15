@@ -34,7 +34,6 @@ const connect = async () => {
     config.connection
       .once('open', resolve)
       .on('error', (e) => {
-      	console.log('oopsy', e)
         if (e.message.code === 'ETIMEDOUT') {
           console.log(e)
 
