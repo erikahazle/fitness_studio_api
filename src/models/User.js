@@ -1,5 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
 import { hashSync, compareSync } from 'bcrypt-nodejs'
+import jwt from 'jsonwebtoken'
 
 const UserSchema = new Schema({
   firstName: String,
@@ -17,11 +18,19 @@ UserSchema.pre('save', function(next) {
 });
 
 UserSchema.methods = {
-  _hashPassword(password) {
+  _hashPassword (password) {
     return hashSync(password);
   },
-  authenticateUser(password) {
+  authenticateUser (password) {
     return compareSync(password, this.password);
+  },
+  createToken() {
+    return jwt.sign(
+      {
+        _id: this._id,
+      },
+      constants.JWT_SECRET
+    )
   }
 }
 
