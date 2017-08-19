@@ -5,6 +5,7 @@ import { makeExecutableSchema } from 'graphql-tools'
 import constants from './constants'
 import typeDefs from '../graphql/schema'
 import resolvers from '../graphql/resolvers'
+import { decodeToken } from '../services/auth'
 
 const schema = makeExecutableSchema({
   typeDefs,
@@ -15,8 +16,7 @@ const auth = async (req, res, next) => {
   try {
     const token = req.headers.authorization
     if (token != null) {
-      const user = await decodeToken(token)
-      req.user = user
+      req.user = await decodeToken(token)
     } else {
       req.user = null
     }
