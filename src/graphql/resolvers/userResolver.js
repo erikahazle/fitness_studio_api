@@ -1,4 +1,5 @@
-import User from '../../models/User';
+import User from '../../models/User'
+import { requireAuth } from '../../services/auth'
 
 export default {
   signup: (_, { fullName, username, password, email }) => {
@@ -16,6 +17,15 @@ export default {
       throw new Error('Password not match!')
     }
 
-    return user;
+    return user
+  },
+
+  me: async (_, args, { user }) => {
+    try {
+      const me = await requireAuth(user)
+      return me
+    } catch (error) {
+      throw error
+    }
   }
 }

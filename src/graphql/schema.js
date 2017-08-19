@@ -38,6 +38,15 @@ export default `
     updatedAt: Date!
   }
 
+  type Me {
+    _id: ID!
+    email: String!
+    firstName: String
+    lastName: String
+    createdAt: Date!
+    updatedAt: Date!
+  }
+
   type Status {
     message: String!
   }
@@ -47,6 +56,7 @@ export default `
     getLocations: [Location]
     getInstructors: [Instructor]
     getSchedules: [Schedule]
+    me: Me
   }
 
   type Mutation {

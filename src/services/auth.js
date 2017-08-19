@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 import User from '../models/User'
 import constants from '../config/constants'
 
-export async function requireAuth(user) {
+export const requireAuth = async (user) => {
   if (!user || !user._id) {
     throw new Error('Unauthorized')
   }
@@ -17,7 +17,7 @@ export async function requireAuth(user) {
   return me
 }
 
-export function decodeToken(token) {
+export const decodeToken = (token) => {
   const arr = token.split(' ')
 
   if (arr[0] === 'Bearer') {

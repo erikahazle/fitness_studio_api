@@ -9,7 +9,8 @@ export default {
     getFitnessClasses: FitnessClassResolvers.getFitnessClasses,
     getLocations: LocationResolvers.getLocations,
     getInstructors: InstructorResolvers.getInstructors,
-    getSchedules: ScheduleResolvers.getSchedules
+    getSchedules: ScheduleResolvers.getSchedules,
+    me: UserResolvers.me
   },
   Mutation: {
 	  createFitnessClass: FitnessClassResolvers.createFitnessClass,

@@ -1,4 +1,5 @@
 import Instructor from '../../models/Instructor'
+import { requireAuth } from '../../services/auth'
 
 export default {
   getInstructors: () => Instructor.find({}),
@@ -9,8 +10,9 @@ export default {
       throw err
     }
   },
-  updateInstructor: async (_, { _id, ...rest }) => {
+  updateInstructor: async (_, { _id, ...rest }, { user }) => {
     try {
+      await requireAuth(user)
       return Instructor.findByIdAndUpdate(_id, rest, { new: true })
     } catch (err) {
       throw err
