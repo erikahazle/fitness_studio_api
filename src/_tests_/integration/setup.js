@@ -16,17 +16,17 @@ const connect = async () => {
     mongoose.Promise = Promise
 
     const options = {
-      server: {
-        auto_reconnect: true,
-        reconnectTries: Number.MAX_VALUE,
-        reconnectInterval: 1000,
-      },
+      useMongoClient: true
     }
 
     try {
 		  mongoose.connect(config.db.test, options)
 		} catch (err) {
-		  mongoose.createConnection(config.db.test, options)
+      try {
+        mongoose.createConnection(config.db.test, options)
+      } catch (err) {
+        console.log('createConnection err', err)
+      }
 		}
 
     config.connection = mongoose.connection
