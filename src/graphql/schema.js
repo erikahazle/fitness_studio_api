@@ -51,6 +51,10 @@ export default `
     message: String!
   }
 
+  type Auth {
+    token: String!
+  }
+
   type Query {
     getFitnessClasses: [FitnessClass]
     getLocations: [Location]
@@ -72,8 +76,8 @@ export default `
     createSchedule(date: String!, duration: String, instructor: String, location: String!, fitnessClass: String!, spacesTotal: Int): Schedule
     updateSchedule(_id: ID!, date: String, duration: String, instructor: String, location: String, fitnessClass: String, spacesTotal: Int): Schedule
     deleteSchedule(_id: ID!): Status
-    signup(email: String!, fullName: String!, password: String!): User
-    login(email: String!, password: String!): User
+    signup(email: String!, fullName: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
   }
 
   schema {
