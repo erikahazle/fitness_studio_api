@@ -82,6 +82,8 @@ export default `
     me: Me
     getAdminStudios: [Studio]
     getCustomerStudios: [Studio]
+    getStudioCustomers: [User]
+    getStudioAdmins(studio: ID!): [User]
   }
 
   type Mutation {

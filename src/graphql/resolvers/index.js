@@ -13,6 +13,8 @@ export default {
     getSchedules: ScheduleResolvers.getSchedules,
     getAdminStudios: StudioResolvers.getAdminStudios,
     getCustomerStudios: StudioResolvers.getCustomerStudios,
+    getStudioAdmins: StudioResolvers.getStudioAdmins,
+    getStudioCustomers: StudioResolvers.getStudioCustomers,
     me: UserResolvers.me
   },
   Mutation: {

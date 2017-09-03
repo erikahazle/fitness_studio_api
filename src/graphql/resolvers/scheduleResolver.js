@@ -40,6 +40,9 @@ export default {
   book: async (_, { _id }, { user }) => {
     try {
       // TODO :: adding a user to bookings array
+
+      // TODO :: booking should add to studio customers table
+      // only if they don't exist already
     } catch (err) {
       throw err
     }
