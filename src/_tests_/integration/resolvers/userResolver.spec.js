@@ -93,9 +93,9 @@ describe('UserResolver', () => {
 	describe('Me', () => {
 		it('should return current user object', async () => {
 			const args = {email: 'test@test.com', fullName: 'Test Testy', password: 'testing'}
-			const newUser = await User.signup(null, args)
-			expect(newUser.token).toBeTruthy()
-			// TODO :: need to inject user into context
+			await User.signup(null, args)
+			const user = await UserModel.findOne({email: args.email})
+			const me = await User.me(null, null, {user: user})
 		})
 	})
 })
