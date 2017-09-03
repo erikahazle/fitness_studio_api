@@ -47,6 +47,25 @@ export default `
     updatedAt: Date!
   }
 
+  type Studio {
+    _id: ID!
+    name: String!
+    description: String
+    logo: String
+  }
+
+  type StudioAdmin {
+    _id: ID!
+    user: User
+    studio: Studio
+  }
+
+  type StudioCustomer {
+    _id: ID!
+    user: User
+    studio: Studio
+  }
+
   type Status {
     message: String!
   }
@@ -61,6 +80,8 @@ export default `
     getInstructors: [Instructor]
     getSchedules: [Schedule]
     me: Me
+    getAdminStudios: [Studio]
+    getCustomerStudios: [Studio]
   }
 
   type Mutation {
@@ -78,6 +99,7 @@ export default `
     deleteSchedule(_id: ID!): Status
     signup(email: String!, fullName: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addStudio(name: String!, description: String, logo: String): Studio
   }
 
   schema {

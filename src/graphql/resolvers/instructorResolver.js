@@ -13,7 +13,7 @@ export default {
   updateInstructor: async (_, { _id, ...rest }, { user }) => {
     try {
       await requireAuth(user)
-      // user should be part of the studio? 
+      // user should be part of the studio?
       return Instructor.findByIdAndUpdate(_id, rest, { new: true })
     } catch (err) {
       throw err

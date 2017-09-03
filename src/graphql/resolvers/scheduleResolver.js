@@ -36,5 +36,19 @@ export default {
 	  } catch (err) {
 	    throw err
 	  }
+  },
+  book: async (_, { _id }, { user }) => {
+    try {
+      // TODO :: adding a user to bookings array
+    } catch (err) {
+      throw err
+    }
+  },
+  cancelBooking: async (_, { _id }, { user }) => {
+    try {
+      // TODO :: adding removing a user from bookings array
+    } catch (err) {
+      throw err
+    }
   }
 }

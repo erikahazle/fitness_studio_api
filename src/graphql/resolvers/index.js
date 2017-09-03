@@ -3,6 +3,7 @@ import LocationResolvers from './locationResolver'
 import InstructorResolvers from './instructorResolver'
 import ScheduleResolvers from './scheduleResolver'
 import UserResolvers from './userResolver'
+import StudioResolvers from './studioResolver'
 
 export default {
   Query: {
@@ -10,6 +11,8 @@ export default {
     getLocations: LocationResolvers.getLocations,
     getInstructors: InstructorResolvers.getInstructors,
     getSchedules: ScheduleResolvers.getSchedules,
+    getAdminStudios: StudioResolvers.getAdminStudios,
+    getCustomerStudios: StudioResolvers.getCustomerStudios,
     me: UserResolvers.me
   },
   Mutation: {
@@ -25,6 +28,7 @@ export default {
 	  createSchedule: ScheduleResolvers.createSchedule,
 	  updateSchedule: ScheduleResolvers.updateSchedule,
 	  deleteSchedule: ScheduleResolvers.deleteSchedule,
+	  addStudio: StudioResolvers.addStudio,
 	  signup: UserResolvers.signup,
 	  login: UserResolvers.login
 	}
